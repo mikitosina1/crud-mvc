@@ -1,0 +1,45 @@
+*{
+	clear: both;
+}
+
+body{
+	height: 100%;
+	width: 80%;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.nav{
+	display: flex;
+	text-align: center;
+	vertical-align: middle;
+	height: 60px;
+	background-color: rgba(0, 148, 255, .1);
+}
+
+.navbar-brand{
+	padding-top: 0;
+}
+
+.navlogo{
+	width: 3em;
+	height: 3em;
+}
+
+.nav-link{
+	padding: 1rem 1rem;
+}
+
+@include media-breakpoint-up(xl) {
+	.nav{}
+}
+@include media-breakpoint-up(lg) {
+
+}
+@include media-breakpoint-up(md) {
+
+}
+@include media-breakpoint-up(sm) {
+
+}
