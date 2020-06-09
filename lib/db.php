@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db = 'cars';
+$db = 'crud';
 $user = 'root';
 $password = '';
 $db_connect = mysqli_connect($host, $user, $password, $db);

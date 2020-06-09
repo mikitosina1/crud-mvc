@@ -1,43 +1,58 @@
 <?php
-//session_start();
+session_start();
 error_reporting(E_ALL);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
 
 <head>	
-	<title>Учебный сайт, главная страница</title>
+	<title>Простое CRUD прил-е</title>
 	<?php include './lib/head.php';?>
 	<link rel="stylesheet" href="./styles/mainstyle.css">
 </head>
 
 <body>
-	<div class="container-fluid">
-
-		<?php
-		include_once './lib/nav.php';	
+	<div class="container">
+		<?php 
+		include_once './lib/nav.php'; 
 		include './lib/db.php';
-		include './lib/create.php';
-		include './lib/read.php';
-		include './lib/update.php';
-		include './lib/delete.php';
+		if (isset($_SESSION['message'])) :
 		?>
-		
-		<input type="text" class="form-control mt-2" placeholder="1 поле" aria-label="Имя пользователя" aria-describedby="basic-addon1">
-		<input type="text" class="form-control mt-2" placeholder="2 поле" aria-label="Имя пользователя" aria-describedby="basic-addon1">
-		<input type="text" class="form-control mt-2" placeholder="3 поле" aria-label="Имя пользователя" aria-describedby="basic-addon1">
-		<button type="button" class="btn btn-success mt-2 ml-1 mr-2">Создать</button>
-		<button type="button" class="btn btn-info mt-2 ml-1 mr-1">Обновить</button>
-		<button type="button" class="btn btn-danger mt-2 ml-2 mr-1">Удалить</button>
 
-
-
-
-
-		<footer>
-			<?php include './lib/footer.php';?>
-		</footer>
+		<div class='alert alert-<?=$_SESSION['msg_type'];?> alert-dismissible fade show mb-1 mt-1' role='alert'>
+			<?php 
+			echo $_SESSION['message'];
+			unset($_SESSION['message']);
+			?>	
+			<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+			<span aria-hidden='true'>&times;</span>
+		</div>
+		<?php endif; ?>
+		<div class="row">
+			<div class="col left">
+				<?php include './lib/table.php'; ?>
+			</div>
+			<div class="col right">
+				<form action="./lib/create.php" method="POST" class="FormA">
+					<input type="text" class="form-control mt-2" placeholder="диллер" aria-label="dealer" aria-describedby="dealer" id="dealer" name="dealer" value="<?php echo $dealer;?>">
+					<input type="text" class="form-control mt-2" placeholder="модель" aria-label="model" aria-describedby="model" id="model" name="model" value="<?php echo $model;?>">
+					<input type="text" class="form-control mt-2" placeholder="год выпуска" aria-label="year" aria-describedby="year" id="year" name="year" value="<?php echo $year;?>">
+					<select class="custom-select form-control mt-2" id="inputGroupSelect" name="gearbox">
+						<option selected  value="<?php echo $gearbox;?>">Выбор коробки передач</option>
+						<option value="ручная">ручная</option>
+						<option value="полуавтомат">полуавтомат</option>
+						<option value="автомат">автомат</option>
+					</select>
+					<input type="text" class="form-control mt-2" placeholder="лошадинные силы" aria-label="horse_power" aria-describedby="horse_power" id="horse_power" name="horse_power" value="<?php echo $horse_power;?>">
+					<input type="text" class="form-control mt-2" placeholder="мощность двигателя" aria-label="engine_power" aria-describedby="engine_power" id="engine_power" name="engine_power"  value="<?php echo $engine_power;?>">
+					<button type="submit" class="btn btn-success mt-2 ml-1 mr-2" name="create">Создать</button>
+				</form>
+			</div>
+		</div>
 	</div>
+	<footer>
+		<?php include './lib/footer.php';?>
+	</footer>
 </body>
 
 </html>

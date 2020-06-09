@@ -1,16 +1,27 @@
-*{
+* {
 	clear: both;
 }
 
-body{
-	height: 100%;
-	width: 80%;
+body {
+	height: 1920px;
+	width: 1080px;
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto;
+	overflow-y: auto;
 }
 
-.nav{
+.container{
+	height: 100%;
+	width: 90%;
+}
+
+.hat {
+	vertical-align: middle!important;
+	font-size: 0.8em;
+}
+
+.nav {
 	display: flex;
 	text-align: center;
 	vertical-align: middle;
@@ -18,17 +29,58 @@ body{
 	background-color: rgba(0, 148, 255, .1);
 }
 
-.navbar-brand{
+.navbar-brand {
 	padding-top: 0;
 }
 
-.navlogo{
+.navlogo {
 	width: 3em;
 	height: 3em;
 }
 
-.nav-link{
+.nav-link {
 	padding: 1rem 1rem;
+}
+
+.left {
+	width: 20em;
+	height: 100%;
+}
+
+.right {
+	width: 20em;
+	height: 100%;
+}
+
+.table tr{
+	width: 400px;
+	overflow-y: scroll;
+}
+
+.table td, .table th {
+	padding: 0.5rem;
+}
+
+.FormA {
+	position: fixed;
+	width: 15em;
+	right: 15%;
+}
+
+.btn-info {
+	width: 8em;
+	height: 2em;
+	font-size: 0.8em;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.btn-danger {
+	width: 8em;
+	height: 2em;
+	font-size: 0.8em;
+	vertical-align: middle;
+	text-align: center;
 }
 
 @include media-breakpoint-up(xl) {
