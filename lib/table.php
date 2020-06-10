@@ -1,8 +1,8 @@
 <?php 
-include 'db.php';
+require_once 'update.php';
 $car_result = mysqli_query($db_connect, "SELECT * FROM automobile") or die(mysqli_error($car_result));
 //pre_r($car_result);
-//pre_r($car_result->fetch_assoc()); проверочки
+//pre_r($car_result->fetch_assoc());
 ?>
 
 <div class="col">
@@ -27,7 +27,7 @@ $car_result = mysqli_query($db_connect, "SELECT * FROM automobile") or die(mysql
 			<td><?php  echo $row['horse_power']; ?></td>
 			<td><?php  echo $row['engine_power']; ?></td>
 			<td>
-				<a href="./lib/update.php?edit=<?php echo $row['id']; ?>" class = "btn btn-info mb-1">Редактировать</a>
+				<a href="./index.php?edit=<?php echo $row['id']; ?>" class = "btn btn-info mb-1">Редактировать</a>
 				<a href="./lib/delete.php?delete=<?php echo $row['id']; ?>" class = "btn btn-danger">Удалить</a>
 			</td>
 		</tr>	
@@ -37,6 +37,7 @@ $car_result = mysqli_query($db_connect, "SELECT * FROM automobile") or die(mysql
 </div>
 
 <?php
+//вывод значений массивом
 function pre_r($array) {
 	echo "<pre>";
 	print_r($array);

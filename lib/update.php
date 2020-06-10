@@ -1,17 +1,23 @@
 <?php 
-session_start();
 include 'db.php';
+//переменные для работы с формой
 $dealer = '';
 $model = '';
 $year = '';
 $gearbox = '';
 $horse = '';
 $PEngine = '';
+$update = false;
+$id = 0;
+
 if (isset($_GET['edit'])) {
 	$id = $_GET['edit'];
-	$edit_result = mysqli_query($db_connect, "DELETE FROM automobile WHERE id = '$id'") or die(mysqli_error($edit_result));
-	if (count($edit_result) == 1) {
-		$row = $edit_result->fetch_array();
+	$update = true;
+	$edit_result = mysqli_query($db_connect, "SELECT * FROM automobile WHERE id = '$id'") 
+		or die(mysqli_error($db_connect));
+
+	if ($edit_result && $edit_result->num_rows == 1) {
+		$row = mysqli_fetch_array($edit_result);
 		$dealer = $row['dealer'];
 		$model = $row['model'];
 		$year = $row['year'];
@@ -19,9 +25,5 @@ if (isset($_GET['edit'])) {
 		$horse = $row['horse_power'];
 		$PEngine = $row['engine_power'];
 	}
-	$_SESSION['message'] = "Изменено, изменения внесены.";
-	$_SESSION['msg_type'] = "success";
 }
-header('Location: http://localhost/crud-mvc/', true, 301);
-exit;
 ?>

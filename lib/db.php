@@ -1,4 +1,5 @@
 <?php
+//подключение к бд
 $host = 'localhost';
 $db = 'crud';
 $user = 'root';
@@ -21,4 +22,5 @@ else {
 	);
 }
 mysqli_query($db_connect, "SET NAMES utf8");
+
 ?>

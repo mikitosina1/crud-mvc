@@ -34,18 +34,36 @@ error_reporting(E_ALL);
 			</div>
 			<div class="col right">
 				<form action="./lib/create.php" method="POST" class="FormA">
-					<input type="text" class="form-control mt-2" placeholder="диллер" aria-label="dealer" aria-describedby="dealer" id="dealer" name="dealer" value="<?php echo $dealer;?>">
-					<input type="text" class="form-control mt-2" placeholder="модель" aria-label="model" aria-describedby="model" id="model" name="model" value="<?php echo $model;?>">
-					<input type="text" class="form-control mt-2" placeholder="год выпуска" aria-label="year" aria-describedby="year" id="year" name="year" value="<?php echo $year;?>">
-					<select class="custom-select form-control mt-2" id="inputGroupSelect" name="gearbox">
-						<option selected  value="<?php echo $gearbox;?>">Выбор коробки передач</option>
+					<input type="text" class="form-control mt-2" placeholder="диллер" aria-label="dealer" aria-describedby="dealer" id="dealer" 
+					name="dealer" value="<?php echo $dealer; ?>">
+					<input type="text" class="form-control mt-2" placeholder="модель" aria-label="model" aria-describedby="model" id="model" 
+					name="model" value="<?php echo $model; ?>">
+					<input type="text" class="form-control mt-2" placeholder="год выпуска" aria-label="year" aria-describedby="year" id="year" 
+					name="year" value="<?php echo $year; ?>">
+					<select class="custom-select form-control mt-2" id="inputGroupSelect" 
+					name="gearbox"  value="<?php echo $gearbox; ?>">
+						<option selected>Выбор коробки передач</option>
 						<option value="ручная">ручная</option>
 						<option value="полуавтомат">полуавтомат</option>
 						<option value="автомат">автомат</option>
 					</select>
-					<input type="text" class="form-control mt-2" placeholder="лошадинные силы" aria-label="horse_power" aria-describedby="horse_power" id="horse_power" name="horse_power" value="<?php echo $horse_power;?>">
-					<input type="text" class="form-control mt-2" placeholder="мощность двигателя" aria-label="engine_power" aria-describedby="engine_power" id="engine_power" name="engine_power"  value="<?php echo $engine_power;?>">
-					<button type="submit" class="btn btn-success mt-2 ml-1 mr-2" name="create">Создать</button>
+					<input type="text" class="form-control mt-2" placeholder="лошадинные силы" aria-label="horse_power" aria-describedby="horse_power" id="horse_power" 
+					name="horse_power" value="<?php echo $horse; ?>">
+					<input type="text" class="form-control mt-2" placeholder="мощность двигателя" aria-label="engine_power" aria-describedby="engine_power" id="engine_power" 
+					name="engine_power"  value="<?php echo $PEngine; ?>">
+					<input type="hidden" name="id" value="<?php echo $id; ?>">
+					<?php if ($update == true): ?>
+						<button type="submit" class="btn btn-warning mt-2 ml-1 mr-2" name="update">
+							Редактировать
+						</button>
+						<a href="http://localhost/crud-mvc/index.php" class="btn btn-success mt-2 ml-1 mr-2">
+							Назад
+						</a>
+					<?php else: ?>
+						<button type="submit" class="btn btn-success mt-2 ml-1 mr-2" name="create">
+							Создать
+						</button>
+					<?php endif; ?>
 				</form>
 			</div>
 		</div>
